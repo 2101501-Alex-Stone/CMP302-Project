@@ -15,6 +15,8 @@ AMyCharacter::AMyCharacter()
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	UE_LOG(LogTemp, Warning, TEXT("Test Object Begin Play"));
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow,TEXT("Test debug message!"));
 	
 }
 

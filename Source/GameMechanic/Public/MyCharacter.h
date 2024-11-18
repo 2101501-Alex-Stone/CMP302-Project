@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "GameMechanic/Public/CStatusComponent.h"
 #include "MyCharacter.generated.h"
 
 UCLASS()
@@ -14,6 +15,8 @@ class GAMEMECHANIC_API AMyCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMyCharacter();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 TestVariable;
 
 protected:
 	// Called when the game starts or when spawned
