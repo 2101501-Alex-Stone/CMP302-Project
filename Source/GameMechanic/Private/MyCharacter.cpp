@@ -2,6 +2,8 @@
 
 
 #include "MyCharacter.h"
+#include "GameMechanic/Public/CStatusComponent.h"
+#include "GameMechanic/Public/CTargetLockComponent.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -20,6 +22,7 @@ void AMyCharacter::BeginPlay()
 	
 }
 
+
 // Called every frame
 void AMyCharacter::Tick(float DeltaTime)
 {
@@ -32,5 +35,44 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AMyCharacter::CStaminaRegenTick()
+{
+	float stamina = 10;
+	if (cStatusComponent->currentStamina >= cStatusComponent->maxStamina)
+	{
+		stamina = 20;
+	}
+}
+
+void AMyCharacter::CHandleStaminaRegen(bool StartStaminaRegen, float duration)
+{
+}
+
+void AMyCharacter::CRunTick()
+{
+}
+
+void AMyCharacter::CHandleRollStepBack()
+{
+}
+
+void AMyCharacter::CHandleAttack()
+{
+}
+
+bool AMyCharacter::CCheckForStamina()
+{
+	return false;
+}
+
+void AMyCharacter::CUpdateAttackRotation()
+{
+}
+
+void AMyCharacter::CRefreshStamina(bool startStaminaRegen)
+{
+	
 }
 
