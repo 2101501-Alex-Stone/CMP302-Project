@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Camera/CameraComponent.h"
 #include "CTargetLockComponent.generated.h"
 
 
@@ -16,7 +17,7 @@ public:
 	// Sets default values for this component's properties
 	UCTargetLockComponent();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float lockOnRadius;
+	float lockOnRadius; 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<AActor> lockOnClass;
@@ -36,14 +37,14 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	//UFUNCTION(BlueprintCallable)
-	//void TraceForTargets();
+	UFUNCTION(BlueprintCallable)
+	TArray<AActor*> TraceForTargets(AActor* CPlayerRef, float CLockOnRadius, TSubclassOf<AActor> CLockOnClass);
 
-	////UFUNCTION(BlueprintCallable)
-	////AActor CheckForClosestTarget(TArray<AActor>* Targets);
+	UFUNCTION(BlueprintCallable)
+	AActor* CCheckForClosestTarget(TArray<AActor*> Targets, AActor* CplayerRef, UCameraComponent* FollowCamera);
 
-	//UFUNCTION(BlueprintCallable)
-	//float CheckHowCloseTargetToCenter(AActor* target);
+	UFUNCTION(BlueprintCallable)
+	float CheckHowCloseTargetToCenter(AActor* target, AActor* CplayerRef, UCameraComponent* FollowCamera);
 
 	//UFUNCTION(BlueprintCallable)
 	//FRotator3f GetLockOnCameraRotation();
