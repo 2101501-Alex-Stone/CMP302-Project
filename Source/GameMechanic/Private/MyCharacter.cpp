@@ -35,6 +35,7 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	
 }
 
 void AMyCharacter::CStaminaRegenTick()
@@ -60,6 +61,11 @@ void AMyCharacter::CHandleRollStepBack()
 
 void AMyCharacter::CHandleAttack()
 {
+}
+
+bool AMyCharacter::CHasMovementKeyInput()
+{
+	return false;
 }
 
 bool AMyCharacter::CCheckForStamina()
